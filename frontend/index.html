@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Kishore DevOps App</title>
+  <style>
+    body { font-family: Arial; background: #0a0e1a; color: white; text-align: center; padding: 50px; }
+    h1 { color: #00d4ff; }
+    button { background: #00d4ff; color: #0a0e1a; padding: 10px 30px; border: none; border-radius: 8px; font-size: 16px; cursor: pointer; margin-top: 20px; }
+    #result { margin-top: 20px; font-size: 18px; color: #10b981; }
+  </style>
+</head>
+<body>
+  <h1>🚀 Kishore DevOps Full Stack App</h1>
+  <p>Deployed using Docker Compose on AWS EC2</p>
+  <button onclick="fetchData()">Get Message from Backend</button>
+  <div id="result"></div>
+  <script>
+    function fetchData() {
+      fetch('/api/message')
+        .then(r => r.json())
+        .then(d => document.getElementById('result').innerHTML = d.message)
+        .catch(() => document.getElementById('result').innerHTML = 'Error connecting to backend');
+    }
+  </script>
+</body>
+</html>
